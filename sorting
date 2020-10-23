@@ -1,0 +1,44 @@
+#include <stdio.h>
+    void selectiom_sort(int a[], int n)
+    {
+    int min, i,j,temp;
+    for(i=1;i<=n-1;i++)
+    {
+        min=i;
+        for(j=1;i<=n;j++)
+        {
+            if(a[j]<a[min])
+            {
+                min=j;
+            }
+        }
+        if(min!=i)
+        {
+            temp= a[min];
+            a[min]=a[i];
+            a[i]=temp;
+        }
+    
+        printf("\n after pass %d , updated array is:",i);
+        for(int i=1;i<=n;i++)
+        printf("%d", a[p]);
+    }
+    printf("\n sorted elements of an array are:\n");
+    for(p=1;p<=n;p++)
+    {
+    printf("%d", a[p];)
+    }
+    int main(void){
+        int n,a[10],i;
+        printf("\n enter the size of elements");
+        scanf("%d",&n);
+        printf("\n enter %d number of elements",n);
+        for(i=1;i<=n;i++)
+        {
+            scanf("%d", %a[i]);
+        }
+        selection sort(a,n);
+        
+    }
+        
+  
