@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;
+    struct node * link;
+};
+struct node * top=NULL;
+
+void push(int item)
+{
+    struct node * temp=(struct node *)malloc(sizeof(struct node));
+    if(temp==NULL)
+    {
+        printf("\n STACK is OVERFLOW");
+    }
+    else
+    {
+        temp->data=item;
+        temp->link=top;
+        top=temp;
+    }
+}
+void pop()
+{
+    struct node * temp;
+    if(top==NULL)
+        printf("\nSTACK is UNDERFLOW");
+    else
+    {
+        temp=top;
+        printf("\n%d is deleted.", temp->data);
+        top=temp->link;
+        temp->link=NULL;
+        free(temp);
+    }
+}
+void traverse()
+{
+    struct node * temp=top;
+    if(top==NULL)
+        printf("stack is underflow and nothing to flow");
+    else
+    {
+    while(temp!=NULL)
+    {
+        printf("%d-> ",temp->data);
+        temp=temp->link;
+    }
+    }
+}
+int main()
+{
+    int k,item;
+    while(1)
+    {
+        printf("\nSTACK OPERATION");
+        printf("\n1.PUSH\n2.POP\n3.TRAVERSE\n4.EXIT");
+        printf("\nEnter your choice: ");
+        scanf("%d",&k);
+        switch(k)
+        {
+            case 1: printf("\n Enter an element to be inserted");
+                    scanf("%d",&item);
+                    push(item);
+            break;
+            case 2: pop();
+            break;
+            case 3: traverse();
+            break;
+            case 4: exit(1);
+            break;
+            default: printf("\n Wrong choice entered");
+            break;
+        }
+    }
+}
